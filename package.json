@@ -1,0 +1,22 @@
+{
+  "name": "rss-reader",
+  "version": "1.0.0",
+  "description": "Simple rss reader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lelea2/rss-reader.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lelea2/rss-reader/issues"
+  },
+  "homepage": "https://github.com/lelea2/rss-reader#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
