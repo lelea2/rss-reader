@@ -7,8 +7,12 @@ import Feed from './components/feed.jsx';
 
 class Home extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   static fetchData({ store }) {
-    return store.dispatch(actions.getFeed(1));
+    // return store.dispatch(actions.getFeed(1));
   }
 
   getId() {
@@ -32,11 +36,21 @@ class Home extends Component {
           <meta charSet="utf-8" />
           <title>Home</title>
         </Helmet>
-        {this.props.items.map((item) => {
-          return (
-            <Feed key={item.title} item={item} />
-          );
-        })}
+        {!this.props.items ? (
+          <div className="text-center">
+            <img src="https://media.giphy.com/media/rDeOjM6DZ1qda/giphy.gif" width="200" height="200" style={{ margin: '40px auto', display: 'block' }} />
+          </div>
+        ) : (
+          <div>
+            <h2>{this.props.title}</h2>
+            <p>{this.props.description}</p>
+            {this.props.items.map((item) => {
+              return (
+                <Feed key={item.title} item={item} id={this.getId} />
+              );
+            })}
+          </div>
+        )}
       </div>
     );
   }

@@ -1,7 +1,9 @@
 import { Types } from '../constants/feed-types';
 
 const initialState = {
-  items: null
+  items: null,
+  title: null,
+  description: null
 };
 
 export default function feedReducer(state = initialState, action) {
@@ -9,7 +11,9 @@ export default function feedReducer(state = initialState, action) {
     case Types.GET_FEEDS:
       return {
         ...state,
-        items: action.payload.items
+        items: action.payload.items,
+        title: action.payload.title,
+        description: action.payload.description
       };
     default:
       return state;

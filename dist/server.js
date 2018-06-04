@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 17);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -80,6 +80,12 @@ module.exports = require("redux");
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-router-dom");
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -89,7 +95,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _home = __webpack_require__(19);
+var _home = __webpack_require__(20);
 
 var _home2 = _interopRequireDefault(_home);
 
@@ -109,19 +115,19 @@ exports.default = {
 };
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-helmet");
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-redux");
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -135,19 +141,19 @@ var Types = exports.Types = {
 };
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-router-dom");
+module.exports = require("reactstrap");
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var feeds = __webpack_require__(15);
+var feeds = __webpack_require__(16);
 var Parser = __webpack_require__(25);
 var parser = new Parser();
 
@@ -168,7 +174,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -184,17 +190,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(6);
+var _reactRouterDom = __webpack_require__(2);
 
-var _redirectWStatus = __webpack_require__(20);
+var _redirectWStatus = __webpack_require__(21);
 
 var _redirectWStatus2 = _interopRequireDefault(_redirectWStatus);
 
-var _routes = __webpack_require__(2);
+var _routes = __webpack_require__(3);
 
 var _routes2 = _interopRequireDefault(_routes);
 
-var _header = __webpack_require__(18);
+var _header = __webpack_require__(19);
 
 var _header2 = _interopRequireDefault(_header);
 
@@ -250,7 +256,7 @@ var App = function (_Component) {
 exports.default = App;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -273,7 +279,7 @@ var isFunction = function isFunction(action) {
 exports.default = customMiddleware;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -285,7 +291,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(1);
 
-var _feedReducer = __webpack_require__(22);
+var _feedReducer = __webpack_require__(23);
 
 var _feedReducer2 = _interopRequireDefault(_feedReducer);
 
@@ -298,31 +304,31 @@ var reducers = (0, _redux.combineReducers)({
 exports.default = reducers;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = require("express");
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom");
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-router");
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -340,13 +346,13 @@ module.exports = [{
 }];
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _express = __webpack_require__(11);
+var _express = __webpack_require__(12);
 
 var _express2 = _interopRequireDefault(_express);
 
@@ -354,35 +360,35 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _server = __webpack_require__(13);
+var _server = __webpack_require__(14);
 
 var _server2 = _interopRequireDefault(_server);
 
-var _reactHelmet = __webpack_require__(3);
+var _reactHelmet = __webpack_require__(4);
 
 var _reactHelmet2 = _interopRequireDefault(_reactHelmet);
 
-var _app = __webpack_require__(8);
+var _app = __webpack_require__(9);
 
 var _app2 = _interopRequireDefault(_app);
 
-var _reactDom = __webpack_require__(12);
+var _reactDom = __webpack_require__(13);
 
-var _reactRedux = __webpack_require__(4);
+var _reactRedux = __webpack_require__(5);
 
 var _redux = __webpack_require__(1);
 
-var _combine = __webpack_require__(10);
+var _combine = __webpack_require__(11);
 
 var _combine2 = _interopRequireDefault(_combine);
 
-var _reactRouter = __webpack_require__(14);
+var _reactRouter = __webpack_require__(15);
 
-var _thunk = __webpack_require__(9);
+var _thunk = __webpack_require__(10);
 
 var _thunk2 = _interopRequireDefault(_thunk);
 
-var _routes = __webpack_require__(2);
+var _routes = __webpack_require__(3);
 
 var _routes2 = _interopRequireDefault(_routes);
 
@@ -390,7 +396,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = (0, _express2.default)();
 
-var RSS = __webpack_require__(7);
+var RSS = __webpack_require__(8);
 
 app.use('/dist', _express2.default.static('./dist'));
 
@@ -475,7 +481,7 @@ function renderFullPage(html, preloadedState, helmet) {
 }
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -491,7 +497,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactstrap = __webpack_require__(24);
+var _reactstrap = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -521,13 +527,15 @@ var Feed = function (_Component) {
     }
   }, {
     key: 'handleBookmark',
-    value: function handleBookmark() {}
+    value: function handleBookmark() {
+      localStorage.set();
+    }
   }, {
     key: 'render',
     value: function render() {
       var item = this.props.item;
+      // console.log(item);
 
-      console.log(item);
       return _react2.default.createElement(
         'div',
         { style: { marginBottom: '20px' } },
@@ -607,7 +615,7 @@ var Feed = function (_Component) {
 exports.default = Feed;
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -623,6 +631,10 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactstrap = __webpack_require__(7);
+
+var _reactRouterDom = __webpack_require__(2);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -634,13 +646,79 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Header = function (_Component) {
   _inherits(Header, _Component);
 
-  function Header() {
+  function Header(props) {
     _classCallCheck(this, Header);
 
-    return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+
+    _this.state = {
+      id: null
+    };
+    return _this;
   }
 
   _createClass(Header, [{
+    key: 'getId',
+    value: function getId() {
+      try {
+        var idStr = this.props.match.params.id;
+        var id = !isNaN(parseInt(idStr, 10)) ? parseInt(idStr, 10) : 1;
+        return id;
+      } catch (ex) {
+        return 1;
+      }
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.setState({
+        id: this.getId()
+      });
+    }
+  }, {
+    key: 'onClick',
+    value: function onClick(id) {
+      var _this2 = this;
+
+      this.setState({
+        id: id
+      }, function () {
+        _this2.props.history.push('/' + id);
+      });
+    }
+  }, {
+    key: 'getColor',
+    value: function getColor(id) {
+      if (id === this.state.id) {
+        return 'success';
+      }
+      return '';
+    }
+  }, {
+    key: 'renderButtons',
+    value: function renderButtons() {
+      // console.log(this.props);
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          _reactstrap.Button,
+          { style: { marginRight: '10px' }, onClick: this.onClick.bind(this, 1), color: this.getColor(1) },
+          'BackChannel'
+        ),
+        _react2.default.createElement(
+          _reactstrap.Button,
+          { style: { marginRight: '10px' }, onClick: this.onClick.bind(this, 2), color: this.getColor(2) },
+          'The Economist'
+        ),
+        _react2.default.createElement(
+          _reactstrap.Button,
+          { onClick: this.onClick.bind(this, 3), color: this.getColor(3) },
+          'Matter'
+        )
+      );
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -651,7 +729,8 @@ var Header = function (_Component) {
           'h1',
           { style: { marginTop: '20px', marginBottom: '30px', color: '#FF1493' } },
           'Simple RSS Feed'
-        )
+        ),
+        this.renderButtons()
       );
     }
   }]);
@@ -659,10 +738,10 @@ var Header = function (_Component) {
   return Header;
 }(_react.Component);
 
-exports.default = Header;
+exports.default = (0, _reactRouterDom.withRouter)(Header);
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -680,17 +759,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(4);
+var _reactRedux = __webpack_require__(5);
 
 var _redux = __webpack_require__(1);
 
-var _reactHelmet = __webpack_require__(3);
+var _reactHelmet = __webpack_require__(4);
 
-var _feedActions = __webpack_require__(21);
+var _feedActions = __webpack_require__(22);
 
 var actions = _interopRequireWildcard(_feedActions);
 
-var _feed = __webpack_require__(17);
+var _feed = __webpack_require__(18);
 
 var _feed2 = _interopRequireDefault(_feed);
 
@@ -707,10 +786,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Home = function (_Component) {
   _inherits(Home, _Component);
 
-  function Home() {
+  function Home(props) {
     _classCallCheck(this, Home);
 
-    return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
   }
 
   _createClass(Home, [{
@@ -732,6 +811,8 @@ var Home = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
         'div',
         null,
@@ -745,17 +826,35 @@ var Home = function (_Component) {
             'Home'
           )
         ),
-        this.props.items.map(function (item) {
-          return _react2.default.createElement(_feed2.default, { key: item.title, item: item });
-        })
+        !this.props.items ? _react2.default.createElement(
+          'div',
+          { className: 'text-center' },
+          _react2.default.createElement('img', { src: 'https://media.giphy.com/media/rDeOjM6DZ1qda/giphy.gif', width: '200', height: '200', style: { margin: '40px auto', display: 'block' } })
+        ) : _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'h2',
+            null,
+            this.props.title
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            this.props.description
+          ),
+          this.props.items.map(function (item) {
+            return _react2.default.createElement(_feed2.default, { key: item.title, item: item, id: _this2.getId });
+          })
+        )
       );
     }
   }], [{
     key: 'fetchData',
     value: function fetchData(_ref) {
-      var store = _ref.store;
+      // return store.dispatch(actions.getFeed(1));
 
-      return store.dispatch(actions.getFeed(1));
+      var store = _ref.store;
     }
   }]);
 
@@ -773,7 +872,7 @@ function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps, null, { withRef: true })(Home);
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -787,7 +886,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(6);
+var _reactRouterDom = __webpack_require__(2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -808,7 +907,7 @@ var RedirectWithStatus = function RedirectWithStatus(_ref) {
 exports.default = RedirectWithStatus;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -819,9 +918,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getFeed = getFeed;
 
-var _feedTypes = __webpack_require__(5);
+var _feedTypes = __webpack_require__(6);
 
-var _axios = __webpack_require__(23);
+var _axios = __webpack_require__(24);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -829,10 +928,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function getFeed(id) {
   return async function (dispatch, getState) {
+    dispatch({
+      type: _feedTypes.Types.GET_FEEDS,
+      payload: {}
+    });
+
     var _ref = await getFeeds(id),
         data = _ref.data;
+    // console.log(data);
 
-    console.log(data);
+
     dispatch({
       type: _feedTypes.Types.GET_FEEDS,
       payload: data
@@ -845,7 +950,7 @@ function getFeeds(id) {
 }
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -859,10 +964,12 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 exports.default = feedReducer;
 
-var _feedTypes = __webpack_require__(5);
+var _feedTypes = __webpack_require__(6);
 
 var initialState = {
-  items: null
+  items: null,
+  title: null,
+  description: null
 };
 
 function feedReducer() {
@@ -872,7 +979,9 @@ function feedReducer() {
   switch (action.type) {
     case _feedTypes.Types.GET_FEEDS:
       return _extends({}, state, {
-        items: action.payload.items
+        items: action.payload.items,
+        title: action.payload.title,
+        description: action.payload.description
       });
     default:
       return state;
@@ -880,16 +989,10 @@ function feedReducer() {
 }
 
 /***/ }),
-/* 23 */
-/***/ (function(module, exports) {
-
-module.exports = require("axios");
-
-/***/ }),
 /* 24 */
 /***/ (function(module, exports) {
 
-module.exports = require("reactstrap");
+module.exports = require("axios");
 
 /***/ }),
 /* 25 */
