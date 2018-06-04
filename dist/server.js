@@ -215,10 +215,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var App = function (_Component) {
   _inherits(App, _Component);
 
-  function App() {
+  function App(props) {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+    _this.state = {
+      addThisLoaded: false
+    };
+    return _this;
   }
 
   _createClass(App, [{
@@ -477,7 +482,7 @@ app.listen(port, function () {
 });
 
 function renderFullPage(html, preloadedState, helmet) {
-  return '\n    <!doctype html>\n    <html>\n      <head>\n        <link rel="icon" href="http://www.clker.com/cliparts/q/I/J/w/u/X/rss-icon-md.png" type="image/ico" />\n        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />\n        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />\n        ' + helmet.title.toString() + '\n        ' + helmet.meta.toString() + '\n        ' + helmet.link.toString() + '\n      </head>\n      <body>\n        <div class="container">\n          <div id="root">' + html + '</div>\n        </div>\n        <script>\n          // WARNING: See the following for security issues around embedding JSON in HTML:\n          // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations\n          window.__PRELOADED_STATE__ = ' + JSON.stringify(preloadedState).replace(/</g, '\\u003c') + '\n        </script>\n        <script src="/dist/assets/app.bundle.js"></script>\n      </body>\n    </html>\n    ';
+  return '\n    <!doctype html>\n    <html>\n      <head>\n        <link rel="icon" href="http://www.clker.com/cliparts/q/I/J/w/u/X/rss-icon-md.png" type="image/ico" />\n        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />\n        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />\n        ' + helmet.title.toString() + '\n        ' + helmet.meta.toString() + '\n        ' + helmet.link.toString() + '\n      </head>\n      <body>\n        <div class="container">\n          <div id="root">' + html + '</div>\n        </div>\n        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b15209923a00b05"></script>\n        <script>\n          // WARNING: See the following for security issues around embedding JSON in HTML:\n          // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations\n          window.__PRELOADED_STATE__ = ' + JSON.stringify(preloadedState).replace(/</g, '\\u003c') + '\n        </script>\n        <script src="/dist/assets/app.bundle.js"></script>\n      </body>\n    </html>\n    ';
 }
 
 /***/ }),
@@ -516,7 +521,10 @@ var Feed = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Feed.__proto__ || Object.getPrototypeOf(Feed)).call(this, props));
 
     _this.toggle = _this.toggle.bind(_this);
-    _this.state = { collapse: false };
+    _this.state = {
+      collapse: false,
+      active: false
+    };
     return _this;
   }
 
@@ -526,9 +534,35 @@ var Feed = function (_Component) {
       this.setState({ collapse: !this.state.collapse });
     }
   }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var item = this.props.item;
+
+      this.setState({
+        active: localStorage.getItem(item.guid) === 'true' ? true : false
+      });
+    }
+  }, {
     key: 'handleBookmark',
-    value: function handleBookmark() {
-      localStorage.set();
+    value: function handleBookmark(item) {
+      var guid = item.guid;
+
+      console.log(guid);
+      var toggleVal = localStorage.getItem(guid) === 'true' ? false : true;
+      this.setState({
+        active: toggleVal
+      }, function () {
+        localStorage.setItem(guid, '' + toggleVal);
+      });
+    }
+  }, {
+    key: 'getColor',
+    value: function getColor(guid) {
+      if (this.state.active === true) {
+        return 'success';
+      } else {
+        return 'secondary';
+      }
     }
   }, {
     key: 'render',
@@ -583,7 +617,7 @@ var Feed = function (_Component) {
                 { className: 'col-3' },
                 _react2.default.createElement(
                   _reactstrap.Button,
-                  { className: 'btn-sm', onClick: this.handleBookmark },
+                  { color: this.getColor(item.guid), className: 'btn-sm', onClick: this.handleBookmark.bind(this, item) },
                   _react2.default.createElement('span', { className: 'fas fa-bookmark' }),
                   '\xA0Bookmark'
                 )
@@ -600,7 +634,7 @@ var Feed = function (_Component) {
               _react2.default.createElement(
                 _reactstrap.Collapse,
                 { isOpen: this.state.collapse },
-                _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: item['content:encoded'] } })
+                _react2.default.createElement('div', { style: { marginTop: '15px' }, dangerouslySetInnerHTML: { __html: item['content:encoded'] } })
               )
             )
           )
@@ -813,6 +847,7 @@ var Home = function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      var addThisLoaded = true;
       return _react2.default.createElement(
         'div',
         null,
@@ -844,7 +879,7 @@ var Home = function (_Component) {
             this.props.description
           ),
           this.props.items.map(function (item) {
-            return _react2.default.createElement(_feed2.default, { key: item.title, item: item, id: _this2.getId });
+            return _react2.default.createElement(_feed2.default, { key: item.title, item: item, id: _this2.getId, addThisLoaded: true });
           })
         )
       );

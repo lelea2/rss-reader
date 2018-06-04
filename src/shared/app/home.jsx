@@ -30,6 +30,7 @@ class Home extends Component {
   }
 
   render() {
+    const addThisLoaded = true;
     return (
       <div>
         <Helmet>
@@ -46,7 +47,7 @@ class Home extends Component {
             <p>{this.props.description}</p>
             {this.props.items.map((item) => {
               return (
-                <Feed key={item.title} item={item} id={this.getId} />
+                <Feed key={item.title} item={item} id={this.getId} addThisLoaded={true} />
               );
             })}
           </div>

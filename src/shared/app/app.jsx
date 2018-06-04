@@ -6,6 +6,13 @@ import Header from './components/header.jsx';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      addThisLoaded: false
+    };
+  }
+
   render() {
     let routes = routeOptions.routes.map(({ path, component, exact }, i) =>
       <Route key={Math.random() + 'ROUTE_'} exact={exact} path={path} component={component} />

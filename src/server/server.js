@@ -100,6 +100,7 @@ function renderFullPage(html, preloadedState, helmet) {
         <div class="container">
           <div id="root">${html}</div>
         </div>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b15209923a00b05"></script>
         <script>
           // WARNING: See the following for security issues around embedding JSON in HTML:
           // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations

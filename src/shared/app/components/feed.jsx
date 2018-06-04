@@ -6,15 +6,40 @@ class Feed extends Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
-    this.state = { collapse: false };
+    this.state = {
+      collapse: false,
+      active: false
+    };
   }
 
   toggle() {
     this.setState({ collapse: !this.state.collapse });
   }
 
-  handleBookmark() {
-    localStorage.set()
+  componentDidMount() {
+    const { item } = this.props;
+    this.setState({
+      active: (localStorage.getItem(item.guid) === 'true') ? true : false
+    });
+  }
+
+  handleBookmark(item) {
+    const { guid } = item;
+    console.log(guid);
+    const toggleVal = (localStorage.getItem(guid) === 'true') ? false : true;
+    this.setState({
+      active: toggleVal
+    }, () => {
+      localStorage.setItem(guid, `${toggleVal}`);
+    });
+  }
+
+  getColor(guid) {
+    if (this.state.active === true) {
+      return 'success';
+    } else {
+      return 'secondary';
+    }
   }
 
   render() {
@@ -33,7 +58,7 @@ class Feed extends Component {
                 </p>
               </div>
               <div className="col-3">
-                <Button className="btn-sm" onClick={this.handleBookmark}>
+                <Button color={this.getColor(item.guid)} className="btn-sm" onClick={this.handleBookmark.bind(this, item)}>
                   <span className="fas fa-bookmark" />&nbsp;Bookmark
                 </Button>
               </div>
@@ -41,7 +66,7 @@ class Feed extends Component {
             <CardText>
               <a style={{ cursor: 'pointer', color: '#0080ff' }} onClick={this.toggle}>View detail</a>
               <Collapse isOpen={this.state.collapse}>
-                <div dangerouslySetInnerHTML={{ __html: item['content:encoded'] }} />
+                <div style={{ marginTop: '15px' }} dangerouslySetInnerHTML={{ __html: item['content:encoded'] }} />
               </Collapse>
             </CardText>
           </CardBody>
