@@ -547,7 +547,7 @@ var Feed = function (_Component) {
     value: function handleBookmark(item) {
       var guid = item.guid;
 
-      console.log(guid);
+      console.log(item);
       var toggleVal = localStorage.getItem(guid) === 'true' ? false : true;
       this.setState({
         active: toggleVal
@@ -626,15 +626,16 @@ var Feed = function (_Component) {
             _react2.default.createElement(
               _reactstrap.CardText,
               null,
+              _react2.default.createElement('div', { className: 'addthis_inline_share_toolbox', 'data-url': item.link, 'data-title': item.title }),
               _react2.default.createElement(
                 'a',
-                { style: { cursor: 'pointer', color: '#0080ff' }, onClick: this.toggle },
+                { style: { cursor: 'pointer', color: '#0080ff', marginTop: '15px' }, onClick: this.toggle },
                 'View detail'
               ),
               _react2.default.createElement(
                 _reactstrap.Collapse,
                 { isOpen: this.state.collapse },
-                _react2.default.createElement('div', { style: { marginTop: '15px' }, dangerouslySetInnerHTML: { __html: item['content:encoded'] } })
+                _react2.default.createElement('div', { style: { marginTop: '20px' }, dangerouslySetInnerHTML: { __html: item['content:encoded'] } })
               )
             )
           )

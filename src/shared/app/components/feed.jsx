@@ -25,7 +25,7 @@ class Feed extends Component {
 
   handleBookmark(item) {
     const { guid } = item;
-    console.log(guid);
+    console.log(item);
     const toggleVal = (localStorage.getItem(guid) === 'true') ? false : true;
     this.setState({
       active: toggleVal
@@ -64,9 +64,10 @@ class Feed extends Component {
               </div>
             </div>
             <CardText>
-              <a style={{ cursor: 'pointer', color: '#0080ff' }} onClick={this.toggle}>View detail</a>
+              <div className="addthis_inline_share_toolbox" data-url={item.link} data-title={item.title} />
+              <a style={{ cursor: 'pointer', color: '#0080ff', marginTop: '15px' }} onClick={this.toggle}>View detail</a>
               <Collapse isOpen={this.state.collapse}>
-                <div style={{ marginTop: '15px' }} dangerouslySetInnerHTML={{ __html: item['content:encoded'] }} />
+                <div style={{ marginTop: '20px' }} dangerouslySetInnerHTML={{ __html: item['content:encoded'] }} />
               </Collapse>
             </CardText>
           </CardBody>
