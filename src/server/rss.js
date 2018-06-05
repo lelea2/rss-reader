@@ -5,6 +5,7 @@ let parser = new Parser();
 const getFeeds = async(id) => {
   const feedId = (id > feeds.length) ? 0 : (id - 1);
   const feed = await parser.parseURL(feeds[feedId].url);
+  console.log(feed);
   return feed;
 };
 

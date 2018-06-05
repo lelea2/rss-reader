@@ -160,6 +160,7 @@ var parser = new Parser();
 var getFeeds = async function getFeeds(id) {
   var feedId = id > feeds.length ? 0 : id - 1;
   var feed = await parser.parseURL(feeds[feedId].url);
+  console.log(feed);
   return feed;
 };
 
@@ -482,7 +483,7 @@ app.listen(port, function () {
 });
 
 function renderFullPage(html, preloadedState, helmet) {
-  return '\n    <!doctype html>\n    <html>\n      <head>\n        <link rel="icon" href="http://www.clker.com/cliparts/q/I/J/w/u/X/rss-icon-md.png" type="image/ico" />\n        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />\n        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />\n        ' + helmet.title.toString() + '\n        ' + helmet.meta.toString() + '\n        ' + helmet.link.toString() + '\n      </head>\n      <body>\n        <div class="container">\n          <div id="root">' + html + '</div>\n        </div>\n        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b15209923a00b05"></script>\n        <script>\n          // WARNING: See the following for security issues around embedding JSON in HTML:\n          // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations\n          window.__PRELOADED_STATE__ = ' + JSON.stringify(preloadedState).replace(/</g, '\\u003c') + '\n        </script>\n        <script src="/dist/assets/app.bundle.js"></script>\n      </body>\n    </html>\n    ';
+  return '\n    <!doctype html>\n    <html>\n      <head>\n        <link rel="icon" href="http://www.clker.com/cliparts/q/I/J/w/u/X/rss-icon-md.png" type="image/ico" />\n        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />\n        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />\n        ' + helmet.title.toString() + '\n        ' + helmet.meta.toString() + '\n        ' + helmet.link.toString() + '\n        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b15209923a00b05"></script>\n      </head>\n      <body>\n        <div class="container">\n          <div id="root">' + html + '</div>\n        </div>\n        <script>\n          // WARNING: See the following for security issues around embedding JSON in HTML:\n          // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations\n          window.__PRELOADED_STATE__ = ' + JSON.stringify(preloadedState).replace(/</g, '\\u003c') + '\n        </script>\n        <script src="/dist/assets/app.bundle.js"></script>\n      </body>\n    </html>\n    ';
 }
 
 /***/ }),
