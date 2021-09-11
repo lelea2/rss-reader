@@ -53,9 +53,11 @@ class Feed extends Component {
               <div className="col-9">
                 <CardTitle>{item.title}</CardTitle>
                 <CardSubtitle>By: {item.creator} -- <i>{item.pubDate}</i></CardSubtitle>
-                <p style={{ color: '#ddd' }}>
-                  <i>{item.categories.join(', ')}</i>
-                </p>
+                {item.categories && (
+                  <p style={{ color: '#ddd' }}>
+                    <i>{item.categories.join(', ')}</i>
+                  </p>
+                )}
               </div>
               <div className="col-3">
                 <Button color={this.getColor(item.guid)} className="btn-sm" onClick={this.handleBookmark.bind(this, item)}>

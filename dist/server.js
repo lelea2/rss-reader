@@ -603,7 +603,7 @@ var Feed = function (_Component) {
                     item.pubDate
                   )
                 ),
-                _react2.default.createElement(
+                item.categories && _react2.default.createElement(
                   'p',
                   { style: { color: '#ddd' } },
                   _react2.default.createElement(
